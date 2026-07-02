@@ -56,7 +56,7 @@ print(f"\nTotal files detected : {file_count + 1}")
 print(f"Total traces read    : {len(all_traces)}")
 print(f"Final FLDR max       : {all_headers[-1][segyio.TraceField.FieldRecord]}")
 
-# ── Write output ──────────────────────────────────────────────
+output 
 print("\nWriting renumbered file...")
 spec            = segyio.spec()
 spec.sorting    = None
@@ -78,7 +78,6 @@ with segyio.create(output_file, spec) as out:
 
 print(f"\nDone! → {output_file}")
 
-# ── Verify ────────────────────────────────────────────────────
 print("\n--- VERIFICATION ---")
 with segyio.open(output_file, "r", ignore_geometry=True) as f:
     total = f.tracecount
